@@ -1,3 +1,5 @@
+import { Notification } from 'components/Notification/Notification';
+
 export const Statistics = ({
   good,
   neutral,
@@ -5,6 +7,10 @@ export const Statistics = ({
   total,
   positivePercentage,
 }) => {
+  if (!total) {
+    return <Notification message="There is no feedback" />;
+  }
+
   return (
     <>
       <p>
@@ -20,8 +26,7 @@ export const Statistics = ({
         Total: <span>{total}</span>
       </p>
       <p>
-        Positive feedback:
-        <span>{positivePercentage}%</span>
+        Positive feedback: <span>{positivePercentage}%</span>
       </p>
     </>
   );
