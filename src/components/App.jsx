@@ -31,13 +31,15 @@ export class App extends Component {
 
   render() {
     return (
-      <>
+      <div className="wrapper">
         <GlobalStyle />
         <Section title="Please leave feedback">
-          <FeedbackOptions
-            options={Object.keys(this.state)}
-            onLeaveFeedback={this.onLeaveFeedback}
-          />
+          <div>
+            <FeedbackOptions
+              options={Object.keys(this.state)}
+              onLeaveFeedback={this.onLeaveFeedback}
+            />
+          </div>
         </Section>
         <Section title="Statistics">
           <Statistics
@@ -48,7 +50,7 @@ export class App extends Component {
             positivePercentage={this.countPositiveFeedbackPercentage()}
           />
         </Section>
-      </>
+      </div>
     );
   }
 }

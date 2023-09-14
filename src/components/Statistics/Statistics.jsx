@@ -1,3 +1,4 @@
+import propTypes from 'prop-types';
 import { Notification } from 'components/Notification/Notification';
 
 export const Statistics = ({
@@ -12,22 +13,20 @@ export const Statistics = ({
   }
 
   return (
-    <>
-      <p>
-        Good: <span>{good}</span>
-      </p>
-      <p>
-        Neutral: <span>{neutral}</span>
-      </p>
-      <p>
-        Bad: <span>{bad}</span>
-      </p>
-      <p>
-        Total: <span>{total}</span>
-      </p>
-      <p>
-        Positive feedback: <span>{positivePercentage}%</span>
-      </p>
-    </>
+    <ul>
+      <li>Good: {good}</li>
+      <li>Neutral: {neutral}</li>
+      <li>Bad: {bad}</li>
+      <li>Total: {total}</li>
+      <li>Positive feedback: {positivePercentage}%</li>
+    </ul>
   );
+};
+
+Statistics.propTypes = {
+  good: propTypes.number,
+  neutral: propTypes.number,
+  bad: propTypes.number,
+  total: propTypes.number,
+  positivePercentage: propTypes.number,
 };
